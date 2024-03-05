@@ -1,0 +1,21 @@
+.editor-container {
+  height: calc(100vh - 60px);
+}
+
+.palette-container {
+  min-width: 270px;
+  background-color: hsl(225deg 23.94% 94.34%);
+  border-right: solid 1px hsl(225, 10%, 80%);
+}
+
+.canvas-container {
+  overflow: auto;
+  max-height: 100vh;
+  border: solid 1px hsl(225, 10%, 80%);
+}
+
+.right-container {
+  width: 270px;
+  background-color: hsl(225deg 23.94% 94.34%);
+  border: solid 1px hsl(225, 10%, 80%);
+}
