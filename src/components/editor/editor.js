@@ -28,6 +28,7 @@ export default function Editor() {
     }),
   });
 
+  // Logic to add background color
   const isActive = canDrop && isOver;
   let backgroundColor = "hsl(225deg 23.94% 94.34%)";
   if (isActive) {
@@ -35,6 +36,15 @@ export default function Editor() {
   } else if (canDrop) {
     backgroundColor = "rgb(203 209 223)";
   }
+
+  // Function to remove the form field from canvas
+  const removeFormFieldFromCanvas = (id) => {
+    setSchema((current) =>
+      current.filter((item) => {
+        return item.id !== id;
+      })
+    );
+  };
 
   return (
     <Grid className="editor-container">
@@ -44,10 +54,10 @@ export default function Editor() {
       <Column lg={8}>
         <div
           ref={drop}
-          style={{backgroundColor }}
+          style={{ backgroundColor }}
           className="canvas-container"
         >
-          <Canvas schema={schema} />
+          <Canvas schema={schema} removeFormField={removeFormFieldFromCanvas} />
         </div>
       </Column>
       <Column lg={4} className="right-container">
