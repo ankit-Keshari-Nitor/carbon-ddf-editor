@@ -1,5 +1,5 @@
 .editor-container {
-  height: calc(100vh - 60px);
+  margin-top: 2rem;
 }
 
 .palette-container {
@@ -9,13 +9,16 @@
 }
 
 .canvas-container {
+  height: calc(100vh - 3rem);
   overflow: auto;
-  max-height: 100vh;
   border: solid 1px hsl(225, 10%, 80%);
 }
 
 .right-container {
-  width: 270px;
+  min-width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: hsl(225deg 23.94% 94.34%);
-  border: solid 1px hsl(225, 10%, 80%);
+  border-left: solid 1px hsl(225, 10%, 80%);
 }
