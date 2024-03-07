@@ -8,6 +8,7 @@ import Select from "./basic/select";
 import NumberInput from "./basic/number";
 import Password from "./basic/password";
 import FileUploader from "./basic/file-upload";
+import Accordion from "./basic/accordion";
 
 export const formFields = [
   Button,
@@ -20,4 +21,5 @@ export const formFields = [
   NumberInput,
   Password,
   FileUploader,
+  Accordion,
 ];
