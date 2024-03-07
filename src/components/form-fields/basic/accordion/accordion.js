@@ -28,5 +28,4 @@ Accordion.config = {
   type,
   label: "Accordion",
   group: "panel",
-  initialData: {},
 };

@@ -121,7 +121,7 @@ export default function LeftPalette() {
               {entries.map((entry) => {
                 return (
                   <PaletteEntry
-                    key={entry.id}
+                    key={ entry.label}
                     getPaletteIcon={getPaletteIcon}
                     {...entry}
                   />
