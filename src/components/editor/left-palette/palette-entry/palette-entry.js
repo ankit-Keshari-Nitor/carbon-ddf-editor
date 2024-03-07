@@ -7,7 +7,7 @@ export default function PaletteEntry(props) {
 
   const [{ isDragging }, drag] = useDrag({
     type: "form-field",
-    item: { id: type + "-" + Math.random(), type, labelText: label },
+    item: { id: type + "-" + Date.now().toString(36), type, labelText: label },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),

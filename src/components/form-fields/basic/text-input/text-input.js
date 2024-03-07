@@ -8,9 +8,7 @@ const TextInput = (props) => {
   const { field, errors, onChange, onBlur, onFocus, readonly, value, ...rest } =
     props;
 
-  return (
-    <CarbonTextInput id={field.id} labelText={field.labelText} {...rest} />
-  );
+  return <CarbonTextInput {...field} {...rest} />;
 };
 
 export default TextInput;
@@ -20,4 +18,31 @@ TextInput.config = {
   type,
   label: "Text Input",
   group: "basic-input",
+  editableProps: {
+    Basic: [
+      {
+        propsName: "labelText",
+        label: "Label",
+        value: "Text Input",
+      },
+      {
+        propsName: "helperText",
+        label: "Help Text",
+        value: "Help Text",
+      },
+    ],
+    Condition: [
+      {
+        propsName: "disabled",
+        label: "Disabled",
+        value: false,
+      },
+      {
+        propsName: "readOnly",
+        label: "ReadOnly",
+        value: false,
+      },
+    ],
+  },
+  advanceProps: {},
 };
