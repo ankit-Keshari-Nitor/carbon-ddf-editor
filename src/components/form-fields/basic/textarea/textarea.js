@@ -5,8 +5,7 @@ import { FORM_FIELD_TYPE } from "../../../constant";
 const type = FORM_FIELD_TYPE.TEXT_AREA;
 
 const TextArea = (props) => {
-  const { field, errors, onChange, onBlur, onFocus, readonly, value, ...rest } =
-    props;
+  const { field, ...rest } = props;
   return <CarbonTextArea {...field} {...rest} />;
 };
 

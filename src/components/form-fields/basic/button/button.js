@@ -6,20 +6,10 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.BUTTON;
 
 const Button = (props) => {
-  const {
-    field,
-    disabled,
-    errors,
-    onChange,
-    onBlur,
-    onFocus,
-    readonly,
-    value,
-    ...rest
-  } = props;
+  const { field, ...rest } = props;
 
   return (
-    <CarbonButton id={field.id} {...rest}>
+    <CarbonButton {...field} {...rest}>
       {field.labelText}
     </CarbonButton>
   );

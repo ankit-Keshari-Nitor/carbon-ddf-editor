@@ -5,25 +5,10 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.NUMBER;
 
 const NumberInput = (props) => {
-  const {
-    field,
-    disabled,
-    errors,
-    onChange,
-    onBlur,
-    onFocus,
-    readonly,
-    value,
-    ...rest
-  } = props;
+  const { field, ...rest } = props;
+  console.log('field::', field);
 
-  return (
-    <CarbonNumberInput
-      id={field.id}
-      label={field.labelText}
-      {...rest}
-    />
-  );
+  return <CarbonNumberInput label={field.labelText} id={field.id} {...rest} />;
 };
 
 export default NumberInput;

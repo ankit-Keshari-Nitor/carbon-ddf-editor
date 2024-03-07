@@ -5,30 +5,17 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.CHECKBOX;
 
 const Checkbox = (props) => {
-  const {
-    field,
-    disabled,
-    errors,
-    onChange,
-    onBlur,
-    onFocus,
-    readonly,
-    value,
-    ...rest
-  } = props;
+  const { field, ...rest } = props;
 
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <CarbonCheckbox
-      id={field.id}
-      labelText={field.labelText}
       checked={isChecked}
       onChange={(_, { checked }) => setIsChecked(checked)}
+      {...field}
       {...rest}
-    >
-      {field.label}
-    </CarbonCheckbox>
+    />
   );
 };
 
