@@ -1,9 +1,10 @@
 import React from "react";
 import { getFormField } from "../../../util/get-form-field";
 import "./field-renderer.scss";
+import { TrashCan } from "@carbon/icons-react";
 
 export default function FieldRenderer(props) {
-  const { field } = props;
+  const { field, removeFormField } = props;
   const FormFieldComponent = getFormField(field.type);
 
   if (!FormFieldComponent) {
@@ -12,7 +13,10 @@ export default function FieldRenderer(props) {
 
   return (
     <div className="element">
-      <FormFieldComponent {...props} />
+      <span className="delete-icon" onClick={() => removeFormField(field.id)}>
+        <TrashCan />
+      </span>
+      <FormFieldComponent field={field} />
     </div>
   );
 }

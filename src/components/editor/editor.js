@@ -1,20 +1,11 @@
 import React from "react";
 import "./editor.scss";
 
-import {
-  Column,
-  Grid,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-} from "@carbon/react";
-
 import LeftPalette from "./left-palette";
 import Canvas from "./canvas";
 import RightPalette from "./right-palette";
 import { useDrop } from "react-dnd";
+import TopNav from "./top-nav";
 
 export default function Editor() {
   const [schema, setSchema] = React.useState([]);
@@ -28,31 +19,42 @@ export default function Editor() {
     }),
   });
 
+  // Logic to add background color
   const isActive = canDrop && isOver;
-  let backgroundColor = "hsl(225deg 23.94% 94.34%)";
+  let backgroundColor = "#ffffff";
   if (isActive) {
     backgroundColor = "rgb(187 204 247)";
   } else if (canDrop) {
     backgroundColor = "rgb(203 209 223)";
   }
 
+  // Function to remove the form field from canvas
+  const removeFormFieldFromCanvas = (id) => {
+    setSchema((current) =>
+      current.filter((item) => {
+        return item.id !== id;
+      })
+    );
+  };
+
   return (
-    <Grid className="editor-container">
-      <Column lg={4} className="palette-container">
-        <LeftPalette />
-      </Column>
-      <Column lg={8}>
+    <div className="editor-container">
+      <TopNav />
+      <div className="layout-container">
+        <div className="palette-container">
+          <LeftPalette />
+        </div>
         <div
           ref={drop}
-          style={{backgroundColor }}
+          style={{ backgroundColor }}
           className="canvas-container"
         >
-          <Canvas schema={schema} />
+          <Canvas schema={schema} removeFormField={removeFormFieldFromCanvas} />
         </div>
-      </Column>
-      <Column lg={4} className="right-container">
-        <RightPalette />
-      </Column>
-    </Grid>
+        <div className="right-container">
+          <RightPalette />
+        </div>
+      </div>
+    </div>
   );
 }
