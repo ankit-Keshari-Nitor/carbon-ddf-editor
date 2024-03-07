@@ -86,7 +86,7 @@ export default function LeftPalette() {
   return (
     <div className="palette">
       {/* Header */}
-      <div className="palette-header" title="Components">
+      <div className="palette-header">
         Components
       </div>
       {/* Search Box */}

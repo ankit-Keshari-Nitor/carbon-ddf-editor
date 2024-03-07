@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./right-palette.scss"
 import { Accordion, AccordionItem, Checkbox, TextInput } from "@carbon/react";
 
 export default function RightPalette({
@@ -12,13 +13,16 @@ export default function RightPalette({
   }, [selectedFiledProps]);
 
   return (
-    <div>
-      <span>{selectedFiledProps?.id}</span>
+    <div className="right-palette-container">
+      {/* Form Field Id */}
+      <div className="palette-header">
+      {selectedFiledProps?.id}
+      </div>
       <Accordion className="custom-class">
         {editableProps &&
           Object.keys(editableProps).map((key, idx) => {
             return (
-              <AccordionItem key={idx} title={key}>
+              <AccordionItem key={idx} title={key} open >
                 {editableProps[key].map((item, idx) => {
                   return key === "Basic" ? (
                     <TextInput

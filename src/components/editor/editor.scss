@@ -17,7 +17,7 @@
   position: sticky;
   flex-direction: column;
   min-width: 270px;
-  max-height:calc(100vh - 66px);
+  max-height: calc(100vh - 56px);
   overflow: auto;
   background-color: #ffffff;
   border: solid 1px hsl(225, 10%, 80%);
@@ -25,7 +25,7 @@
 
 .canvas-container {
   flex: 1;
-  max-height: calc(100vh - 66px);
+  max-height: calc(100vh - 56px);
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -36,11 +36,9 @@
 .right-container {
   display: flex;
   position: sticky;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   min-width: 270px;
-  max-height: calc(100vh - 66px);
+  max-height: calc(100vh - 56px);
   background-color: #ffffff;
   border: solid 1px hsl(225, 10%, 80%);
 }

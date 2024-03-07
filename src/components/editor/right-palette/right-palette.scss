@@ -1,0 +1,16 @@
+.right-palette-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 8px;
+}
+
+.right-palette-container .palette-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: hsl(225, 10%, 15%);
+  padding: 10px 15px;
+  background: #ffffff;
+  user-select: none;
+}

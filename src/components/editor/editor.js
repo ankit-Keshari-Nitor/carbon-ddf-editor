@@ -47,7 +47,6 @@ export default function Editor() {
 
   const handleSchemaChanges = (idx, key, propsName, e) => {
     let objCopy = selectedFiledProps;
-
     objCopy.editableProps[key].map((config) => {
       if (config.propsName === propsName) {
         config.value = e.target.value;
