@@ -7,7 +7,7 @@ const type = FORM_FIELD_TYPE.TEXT_AREA;
 const TextArea = (props) => {
   const { field, errors, onChange, onBlur, onFocus, readonly, value, ...rest } =
     props;
-  return <CarbonTextArea id={field.id} labelText={field.labelText} {...rest} />;
+  return <CarbonTextArea {...field} {...rest} />;
 };
 
 export default TextArea;
@@ -17,4 +17,31 @@ TextArea.config = {
   type,
   label: "Text Area",
   group: "basic-input",
+  editableProps: {
+    Basic: [
+      {
+        propsName: "labelText",
+        label: "Label",
+        value: "Text Area",
+      },
+      {
+        propsName: "helperText",
+        label: "Help Text",
+        value: "Help Text",
+      },
+    ],
+    Condition: [
+      {
+        propsName: "disabled",
+        label: "Disabled",
+        value: false,
+      },
+      {
+        propsName: "readOnly",
+        label: "ReadOnly",
+        value: false,
+      },
+    ],
+  },
+  advanceProps: {},
 };

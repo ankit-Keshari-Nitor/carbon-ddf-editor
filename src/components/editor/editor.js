@@ -6,9 +6,12 @@ import Canvas from "./canvas";
 import RightPalette from "./right-palette";
 import { useDrop } from "react-dnd";
 import TopNav from "./top-nav";
+import { getFormField } from "../util/get-form-field";
 
 export default function Editor() {
   const [schema, setSchema] = React.useState([]);
+  const [selectedFiledProps, setSelectedFiledProps] = React.useState();
+  const [valueTracker, setValueTracker] = React.useState(false);
 
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: "form-field",
@@ -37,6 +40,29 @@ export default function Editor() {
     );
   };
 
+  const selectedField = (filedProps) => {
+    let filedTypeConfig = getFormField(filedProps.type).config;
+    setSelectedFiledProps({ ...filedTypeConfig, id: filedProps.id });
+  };
+
+  const handleSchemaChanges = (idx, key, propsName, e) => {
+    let objCopy = selectedFiledProps;
+
+    objCopy.editableProps[key].map((config) => {
+      if (config.propsName === propsName) {
+        config.value = e.target.value;
+      }
+    });
+    setSelectedFiledProps(objCopy);
+
+    schema.map((schemaItem) => {
+      if (schemaItem.id === idx) {
+        return (schemaItem[propsName] = e.target.value);
+      }
+    });
+    setValueTracker(!valueTracker);
+  };
+
   return (
     <div className="editor-container">
       <TopNav />
@@ -49,10 +75,17 @@ export default function Editor() {
           style={{ backgroundColor }}
           className="canvas-container"
         >
-          <Canvas schema={schema} removeFormField={removeFormFieldFromCanvas} />
+          <Canvas
+            schema={schema}
+            removeFormField={removeFormFieldFromCanvas}
+            selectedField={selectedField}
+          />
         </div>
         <div className="right-container">
-          <RightPalette />
+          <RightPalette
+            selectedFiledProps={selectedFiledProps}
+            handleSchemaChanges={handleSchemaChanges}
+          />
         </div>
       </div>
     </div>
