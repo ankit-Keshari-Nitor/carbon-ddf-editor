@@ -1,24 +1,44 @@
 .editor-container {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout-container {
+  width: 100%;
+  display: flex;
+  flex: 1;
 }
 
 .palette-container {
+  display: flex;
+  position: sticky;
+  flex-direction: column;
   min-width: 270px;
-  background-color: hsl(225deg 23.94% 94.34%);
-  border-right: solid 1px hsl(225, 10%, 80%);
-}
-
-.canvas-container {
-  height: calc(100vh - 3rem);
+  max-height:calc(100vh - 66px);
   overflow: auto;
+  background-color: #ffffff;
   border: solid 1px hsl(225, 10%, 80%);
 }
 
-.right-container {
-  min-width: 270px;
+.canvas-container {
+  flex: 1;
+  max-height: calc(100vh - 66px);
   display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border: dotted 1px hsl(225, 10%, 80%);
+  margin: 0px 4px;
+}
+
+.right-container {
+  display: flex;
+  position: sticky;
   align-items: center;
   justify-content: center;
-  background-color: hsl(225deg 23.94% 94.34%);
-  border-left: solid 1px hsl(225, 10%, 80%);
+  flex-direction: column;
+  min-width: 270px;
+  max-height: calc(100vh - 66px);
+  background-color: #ffffff;
+  border: solid 1px hsl(225, 10%, 80%);
 }
