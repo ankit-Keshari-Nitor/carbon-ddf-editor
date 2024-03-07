@@ -5,17 +5,7 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.ACCORDION;
 
 const Accordion = (props) => {
-  const {
-    field,
-    disabled,
-    errors,
-    onChange,
-    onBlur,
-    onFocus,
-    readonly,
-    value,
-    ...rest
-  } = props;
+  const { field, ...rest } = props;
 
   return (
     <CarbonAccordion id={field.id} {...rest}>
@@ -38,7 +28,4 @@ Accordion.config = {
   type,
   label: "Accordion",
   group: "panel",
-  initialData: {
-    
-  }
 };

@@ -8,20 +8,14 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.RADIO;
 
 const RadioButton = (props) => {
-  const {
-    field,
-    disabled,
-    errors,
-    onChange,
-    onBlur,
-    onFocus,
-    readonly,
-    value,
-    ...rest
-  } = props;
+  const { field, ...rest } = props;
 
   return (
-    <RadioButtonGroup legendText={field.legendText} name={field.legendName} {...rest}>
+    <RadioButtonGroup
+      legendText={field.legendText}
+      name={field.legendName}
+      {...rest}
+    >
       <CarbonRadioButton
         id={field.id}
         labelText={field.labelText}

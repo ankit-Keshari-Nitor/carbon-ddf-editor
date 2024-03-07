@@ -5,16 +5,9 @@ import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
 const type = FORM_FIELD_TYPE.PASSWORD;
 
 const Password = (props) => {
-  const { field, errors, onChange, onBlur, onFocus, readonly, value, ...rest } =
-    props;
+  const { field, ...rest } = props;
 
-  return (
-    <CarbonTextInput.PasswordInput
-      id={field.id}
-      labelText={field.labelText}
-      {...rest}
-    />
-  );
+  return <CarbonTextInput.PasswordInput {...field} {...rest} />;
 };
 
 export default Password;
