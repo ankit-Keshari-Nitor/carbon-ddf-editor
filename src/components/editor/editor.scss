@@ -1,7 +1,9 @@
 .editor-container {
   display: flex;
-  flex-direction: column;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 8px;
 }
 
 .layout-container {

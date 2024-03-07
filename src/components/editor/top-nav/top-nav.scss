@@ -1,14 +1,13 @@
 .top-nav-container {
+  position: sticky;
+  top: 0;
   width: 100%;
   display: flex;
   align-items: center;
-  position: sticky;
-  top: 0;
   background-color: white;
   z-index: 10;
   flex-shrink: 0;
-  max-height: 48px;
-  margin: 8px;
+  min-height: 48px;
 }
 
 .top-nav-container .heading-container {

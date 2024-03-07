@@ -1,0 +1,28 @@
+.code-container {
+  padding: 8px;
+}
+
+.code-container .heading-container {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.code-container .heading-container .heading {
+  display: flex;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: bold;
+  color: hsl(225, 10%, 15%);
+  user-select: none;
+}
+
+.code-container .heading-container .cross-icon {
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: hsl(225, 10%, 15%);
+}
+
+.code-container .schema-container {
+  max-height: 400px;
+}
