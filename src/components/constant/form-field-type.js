@@ -8,5 +8,6 @@ export const FORM_FIELD_TYPE = {
   SELECT: "select",
   NUMBER: "numberinput",
   PASSWORD: "password",
-  FILE_UPLOADER: 'fileUploader'
+  FILE_UPLOADER: 'fileUploader',
+  ACCORDION: 'accordion'
 };
