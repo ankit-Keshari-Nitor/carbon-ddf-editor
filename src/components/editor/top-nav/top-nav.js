@@ -9,9 +9,9 @@ export default function TopNav() {
         <span className="heading-text">Precisely Forms Editor</span>
       </div>
       <div className="buttons-container"></div>
-      <div className="schema-button-container">
+      {/* <div className="schema-button-container">
         <Button kind="secondary">Show Schema</Button>
-      </div>
+      </div> */}
     </div>
   );
 }
