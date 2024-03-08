@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./editor.scss";
 
 import LeftPalette from "./left-palette";
@@ -12,6 +12,7 @@ const Editor = () => {
   const [schema, setSchema] = React.useState([]);
   const [selectedFiledProps, setSelectedFiledProps] = React.useState();
   const [valueTracker, setValueTracker] = React.useState(false);
+  const [fieldDeleted, setFieldDeleted] = React.useState(false);
 
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: "form-field",
@@ -38,8 +39,16 @@ const Editor = () => {
         return item.id !== id;
       })
     );
-    setSelectedFiledProps({});
+    setFieldDeleted(!fieldDeleted);
   };
+
+  useEffect(() => {
+    if (fieldDeleted) {
+      setSelectedFiledProps({});
+      setFieldDeleted(!fieldDeleted);
+      console.log("inside useeffect if");
+    }
+  }, [fieldDeleted]);
 
   const selectedField = (filedProps) => {
     let filedTypeConfig = getFormField(filedProps.type).config;
@@ -51,6 +60,13 @@ const Editor = () => {
         baiscEditPops.value = fieldData[baiscEditPops?.propsName];
       } else {
         baiscEditPops.value = "";
+      }
+    });
+    filedTypeConfig?.editableProps?.Condition.map((baiscEditPops) => {
+      if (fieldData[baiscEditPops.propsName]) {
+        baiscEditPops.value = fieldData[baiscEditPops?.propsName];
+      } else {
+        baiscEditPops.value = false;
       }
     });
     setSelectedFiledProps({ ...filedTypeConfig, id: filedProps.id });

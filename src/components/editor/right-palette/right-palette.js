@@ -39,22 +39,32 @@ export default function RightPalette({
                       }
                     />
                   ) : (
-                    <Toggle
-                      key={idx}
-                      id={"toggle-" + String(idx)}
-                      className="right-palette-form-item "
-                      labelText={item.label}
-                      defaultToggled={item.value}
-                      onClick={(e) =>
-                        handleSchemaChanges(
-                          selectedFiledProps?.id,
-                          key,
-                          item.propsName,
-                          !item.value
-                        )
-                      }
-                      hideLabel
-                    />
+                    <ul key={idx}>
+                      <li>
+                        <Toggle
+                          key={idx}
+                          id={
+                            "toggle-" +
+                            String(idx) +
+                            "-" +
+                            selectedFiledProps?.id
+                          }
+                          className="right-palette-form-item "
+                          labelText={item.label}
+                          defaultToggled={item.value}
+                          toggled={item.value}
+                          onClick={(e) =>
+                            handleSchemaChanges(
+                              selectedFiledProps?.id,
+                              key,
+                              item.propsName,
+                              !item.value
+                            )
+                          }
+                          hideLabel
+                        />
+                      </li>
+                    </ul>
                   );
                 })}
               </AccordionItem>
