@@ -6,7 +6,6 @@ const type = FORM_FIELD_TYPE.NUMBER;
 
 const NumberInput = (props) => {
   const { field, ...rest } = props;
-  console.log('field::', field);
 
   return <CarbonNumberInput label={field.labelText} id={field.id} {...rest} />;
 };
