@@ -4,7 +4,7 @@ import "./field-renderer.scss";
 import { TrashCan } from "@carbon/icons-react";
 
 const FieldRenderer = (props) => {
-  const { field, removeFormField, selectedField } = props;
+  const { field, removeFormField } = props;
   const FormFieldComponent = getFormField(field.type);
 
   if (!FormFieldComponent) {
@@ -16,9 +16,7 @@ const FieldRenderer = (props) => {
       <span className="delete-icon" onClick={() => removeFormField(field.id)}>
         <TrashCan />
       </span>
-      <div onClick={() => selectedField(field)}>
-        <FormFieldComponent field={field} />
-      </div>
+      <FormFieldComponent field={field} />
     </div>
   );
 };
