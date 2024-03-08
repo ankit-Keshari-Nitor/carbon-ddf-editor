@@ -1,6 +1,5 @@
 import React from "react";
 import "./top-nav.scss";
-import { Button } from "@carbon/react";
 
 export default function TopNav() {
   return (
