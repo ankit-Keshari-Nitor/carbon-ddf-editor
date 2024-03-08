@@ -26,6 +26,7 @@ export default function RightPalette({
                     <TextInput
                       key={idx}
                       id={String(idx)}
+                      className="right-palette-form-item "
                       labelText={item.label}
                       value={item.value}
                       onChange={(e) =>
@@ -48,8 +49,7 @@ export default function RightPalette({
                             "-" +
                             selectedFiledProps?.id
                           }
-                          labelA="Off"
-                          labelB="On"
+                          className="right-palette-form-item "
                           labelText={item.label}
                           defaultToggled={item.value}
                           toggled={item.value}
@@ -61,6 +61,7 @@ export default function RightPalette({
                               !item.value
                             )
                           }
+                          hideLabel
                         />
                       </li>
                     </ul>

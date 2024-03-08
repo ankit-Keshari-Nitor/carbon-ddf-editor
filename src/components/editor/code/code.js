@@ -1,8 +1,8 @@
-import { QX } from "@carbon/icons-react";
 import React from "react";
-import './code.scss'
+import { QX } from "@carbon/icons-react";
+import "./code.scss";
 
-export default function Code({ setShowSchema }) {
+const Code = ({ setShowSchema }) => {
   return (
     <div className="code-container">
       <div className="heading-container">
@@ -14,4 +14,6 @@ export default function Code({ setShowSchema }) {
       </div>
     </div>
   );
-}
+};
+
+export default Code;

@@ -8,7 +8,7 @@ import { useDrop } from "react-dnd";
 import TopNav from "./top-nav";
 import { getFormField } from "../util/get-form-field";
 
-export default function Editor() {
+const Editor = () => {
   const [schema, setSchema] = React.useState([]);
   const [selectedFiledProps, setSelectedFiledProps] = React.useState();
   const [valueTracker, setValueTracker] = React.useState(false);
@@ -116,4 +116,6 @@ export default function Editor() {
       </div>
     </div>
   );
-}
+};
+
+export default Editor;

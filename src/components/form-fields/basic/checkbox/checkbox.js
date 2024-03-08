@@ -1,28 +1,36 @@
 import React, { useState } from "react";
 import { Checkbox as CarbonCheckbox } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.CHECKBOX;
 
-const Checkbox = (props) => {
-  const { field, ...rest } = props;
-
+const Checkbox = ({ field }) => {
+  const { id, type, labelText, isRequired, ...rest } = field;
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <CarbonCheckbox
-      checked={isChecked}
-      onChange={(_, { checked }) => setIsChecked(checked)}
-      {...field}
-      {...rest}
-    />
+    <>
+      <Label labelText={labelText} isRequired={isRequired} />
+      <CarbonCheckbox
+        id={id}
+        type={type}
+        labelText=""
+        checked={isChecked}
+        onChange={(_, { checked }) => setIsChecked(checked)}
+        {...rest}
+      />
+    </>
   );
 };
 
 export default Checkbox;
 
+// Config of Accordion for Left Palette & Right Palette
 Checkbox.config = {
   type,
   label: "Checkbox",
   group: "selection",
+  editableProps: editableProps,
+  advanceProps: {},
 };

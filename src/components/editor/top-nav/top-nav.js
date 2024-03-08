@@ -1,8 +1,7 @@
 import React from "react";
 import "./top-nav.scss";
-import { Button } from "@carbon/react";
 
-export default function TopNav() {
+const TopNav = () => {
   return (
     <div className="top-nav-container">
       <div className="heading-container">
@@ -14,4 +13,6 @@ export default function TopNav() {
       </div> */}
     </div>
   );
-}
+};
+
+export default TopNav;

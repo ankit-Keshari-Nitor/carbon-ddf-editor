@@ -1,34 +1,32 @@
-import React from "react";
-import {
+import React from "react";import {
   RadioButton as CarbonRadioButton,
   RadioButtonGroup,
 } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.RADIO;
 
-const RadioButton = (props) => {
-  const { field, ...rest } = props;
+const RadioButton = ({ field }) => {
+  const { id, type, labelText, isRequired, ...rest } = field;
 
   return (
-    <RadioButtonGroup
-      legendText={field.legendText}
-      name={field.legendName}
-      {...rest}
-    >
-      <CarbonRadioButton
-        id={field.id}
-        labelText={field.labelText}
-        value={field.value}
-      />
-    </RadioButtonGroup>
+    <>
+      <Label labelText={labelText} isRequired={isRequired} />
+      <RadioButtonGroup name="">
+        <CarbonRadioButton id={id} labelText="" value={id} {...rest} />
+      </RadioButtonGroup>
+    </>
   );
 };
 
 export default RadioButton;
 
+// Config of Accordion for Left Palette & Right Palette
 RadioButton.config = {
   type,
   label: "Radio Group",
   group: "selection",
+  editableProps: editableProps,
+  advanceProps: {},
 };

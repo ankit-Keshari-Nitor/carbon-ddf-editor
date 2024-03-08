@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import { Button as CarbonButton } from "@carbon/react";
 import "./button.scss";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.BUTTON;
 
@@ -22,4 +22,6 @@ Button.config = {
   type,
   label: "Button",
   group: "action",
+  editableProps: editableProps,
+  advanceProps: {},
 };
