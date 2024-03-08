@@ -1,13 +1,24 @@
 import * as React from "react";
 import { TextInput as CarbonTextInput } from "@carbon/react";
 import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.PASSWORD;
 
-const Password = (props) => {
-  const { field, ...rest } = props;
+const Password = ({ field }) => {
+  const { id, type, labelText, isRequired, ...rest } = field;
 
-  return <CarbonTextInput.PasswordInput {...field} {...rest} />;
+  return (
+    <>
+      <Label labelText={labelText} isRequired={isRequired} />
+      <CarbonTextInput.PasswordInput
+        id={id}
+        type={type}
+        labelText=""
+        {...rest}
+      />
+    </>
+  );
 };
 
 export default Password;
