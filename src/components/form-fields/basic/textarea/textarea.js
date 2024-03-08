@@ -4,9 +4,10 @@ import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.TEXT_AREA;
 
-const TextArea = (props) => {
-  const { field, ...rest } = props;
-  return <CarbonTextArea {...field} {...rest} />;
+const TextArea = ({ field }) => {
+  const { id, type, labelText, ...rest } = field;
+
+  return <CarbonTextArea id={id} type={type} labelText="" {...rest} />;
 };
 
 export default TextArea;
