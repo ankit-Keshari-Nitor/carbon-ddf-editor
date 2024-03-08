@@ -1,6 +1,6 @@
 import React from "react";
 import { Select as CarbonSelect, SelectItem } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.SELECT;
 
@@ -16,8 +16,11 @@ const Select = (props) => {
 
 export default Select;
 
+// Config of Accordion for Left Palette & Right Palette
 Select.config = {
   type,
   label: "Select",
   group: "selection",
+  editableProps: editableProps,
+  advanceProps: {},
 };

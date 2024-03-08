@@ -1,6 +1,6 @@
 import * as React from "react";
 import { AccordionItem, Accordion as CarbonAccordion } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.ACCORDION;
 
@@ -28,4 +28,6 @@ Accordion.config = {
   type,
   label: "Accordion",
   group: "panel",
+  editableProps: editableProps,
+  advanceProps: {},
 };

@@ -3,7 +3,7 @@ import {
   RadioButton as CarbonRadioButton,
   RadioButtonGroup,
 } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.RADIO;
 
@@ -27,8 +27,11 @@ const RadioButton = (props) => {
 
 export default RadioButton;
 
+// Config of Accordion for Left Palette & Right Palette
 RadioButton.config = {
   type,
   label: "Radio Group",
   group: "selection",
+  editableProps: editableProps,
+  advanceProps: {},
 };

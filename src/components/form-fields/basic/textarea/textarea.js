@@ -1,7 +1,6 @@
 import * as React from "react";
 import { TextArea as CarbonTextArea } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant";
-import { editableProps } from "../../../constant/field-property-props";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.TEXT_AREA;
 

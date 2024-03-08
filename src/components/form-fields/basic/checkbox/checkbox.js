@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox as CarbonCheckbox } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.CHECKBOX;
 
@@ -21,8 +21,11 @@ const Checkbox = (props) => {
 
 export default Checkbox;
 
+// Config of Accordion for Left Palette & Right Palette
 Checkbox.config = {
   type,
   label: "Checkbox",
   group: "selection",
+  editableProps: editableProps,
+  advanceProps: {},
 };

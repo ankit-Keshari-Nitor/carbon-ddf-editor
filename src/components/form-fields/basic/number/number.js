@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NumberInput as CarbonNumberInput } from "@carbon/react";
-import { FORM_FIELD_TYPE } from "../../../constant/form-field-type";
+import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
 
 const type = FORM_FIELD_TYPE.NUMBER;
 
@@ -13,9 +13,11 @@ const NumberInput = (props) => {
 
 export default NumberInput;
 
-// Config of Number for Left Palette
+// Config of Accordion for Left Palette & Right Palette
 NumberInput.config = {
   type,
   label: "Number",
   group: "basic-input",
+  editableProps: editableProps,
+  advanceProps: {},
 };
