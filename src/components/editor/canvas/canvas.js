@@ -1,11 +1,10 @@
 import React from "react";
-
 import FieldRenderer from "./field-renderer/field-renderer";
 
-export default function Canvas({ schema, removeFormField, selectedField }) {
+const Canvas = ({ schema, removeFormField, selectedField }) => {
   return schema.map((formField) => {
     return (
-      <div>
+      <div key={formField.id}>
         <FieldRenderer
           field={formField}
           removeFormField={removeFormField}
@@ -14,4 +13,6 @@ export default function Canvas({ schema, removeFormField, selectedField }) {
       </div>
     );
   });
-}
+};
+
+export default Canvas;

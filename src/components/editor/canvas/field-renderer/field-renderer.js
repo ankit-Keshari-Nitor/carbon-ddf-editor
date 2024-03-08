@@ -3,7 +3,7 @@ import { getFormField } from "../../../util/get-form-field";
 import "./field-renderer.scss";
 import { TrashCan } from "@carbon/icons-react";
 
-export default function FieldRenderer(props) {
+const FieldRenderer = (props) => {
   const { field, removeFormField, selectedField } = props;
   const FormFieldComponent = getFormField(field.type);
 
@@ -21,4 +21,6 @@ export default function FieldRenderer(props) {
       </div>
     </div>
   );
-}
+};
+
+export default FieldRenderer;

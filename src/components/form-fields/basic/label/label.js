@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 const Label = ({ labelText, isRequired }) => {
   return (
@@ -14,4 +14,4 @@ const Label = ({ labelText, isRequired }) => {
   );
 };
 
-export default memo(Label);
+export default Label;

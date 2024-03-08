@@ -2,7 +2,7 @@ import React from "react";
 import "./palette-entry.scss";
 import { useDrag } from "react-dnd";
 
-export default function PaletteEntry(props) {
+const PaletteEntry = (props) => {
   const { type, label, icon, iconUrl, getPaletteIcon } = props;
 
   const [{ isDragging }, drag] = useDrag({
@@ -30,7 +30,9 @@ export default function PaletteEntry(props) {
       </button>
     </div>
   );
-}
+};
+
+export default PaletteEntry;
 
 // helpers ///////////
 function getIndefiniteArticle(type) {

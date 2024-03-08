@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Button as CarbonButton } from "@carbon/react";
 import "./button.scss";
 import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
