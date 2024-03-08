@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import "./right-palette.scss"
-import { Accordion, AccordionItem, Checkbox, TextInput } from "@carbon/react";
+import "./right-palette.scss";
+import { Accordion, AccordionItem, Toggle, TextInput } from "@carbon/react";
 
 export default function RightPalette({
   selectedFiledProps,
@@ -15,14 +15,12 @@ export default function RightPalette({
   return (
     <div className="right-palette-container">
       {/* Form Field Id */}
-      <div className="palette-header">
-      {selectedFiledProps?.id}
-      </div>
+      <div className="palette-header">{selectedFiledProps?.id}</div>
       <Accordion className="custom-class">
         {editableProps &&
           Object.keys(editableProps).map((key, idx) => {
             return (
-              <AccordionItem key={idx} title={key} open >
+              <AccordionItem key={idx} title={key} open>
                 {editableProps[key].map((item, idx) => {
                   return key === "Basic" ? (
                     <TextInput
@@ -35,19 +33,27 @@ export default function RightPalette({
                           selectedFiledProps?.id,
                           key,
                           item.propsName,
-                          e
+                          e.target.value
                         )
                       }
                     />
                   ) : (
-                    <Checkbox
+                    <Toggle
                       key={idx}
-                      id={String(idx)}
+                      id={"toggle-" + String(idx)}
+                      labelA="Off"
+                      labelB="On"
                       labelText={item.label}
-                      checked={item.value}
-                      onChange={(e) => {
-                        console.log("CHeckbox clicked...", e);
-                      }}
+                      defaultToggled={item.value}
+                      //onToggle={(e)=>{console.log('Test TOgale click')}}
+                      onClick={(e) =>
+                        handleSchemaChanges(
+                          selectedFiledProps?.id,
+                          key,
+                          item.propsName,
+                          !item.value
+                        )
+                      }
                     />
                   );
                 })}
