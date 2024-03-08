@@ -38,25 +38,36 @@ export default function Editor() {
         return item.id !== id;
       })
     );
+    setSelectedFiledProps({});
   };
 
   const selectedField = (filedProps) => {
     let filedTypeConfig = getFormField(filedProps.type).config;
+    const fieldData = schema.filter(
+      (fieldItem) => fieldItem.id === filedProps.id
+    )[0];
+    filedTypeConfig?.editableProps?.Basic.map((baiscEditPops) => {
+      if (fieldData[baiscEditPops.propsName]) {
+        baiscEditPops.value = fieldData[baiscEditPops?.propsName];
+      } else {
+        baiscEditPops.value = "";
+      }
+    });
     setSelectedFiledProps({ ...filedTypeConfig, id: filedProps.id });
   };
 
-  const handleSchemaChanges = (idx, key, propsName, e) => {
+  const handleSchemaChanges = (idx, key, propsName, newValue) => {
     let objCopy = selectedFiledProps;
     objCopy.editableProps[key].map((config) => {
       if (config.propsName === propsName) {
-        config.value = e.target.value;
+        config.value = newValue;
       }
     });
     setSelectedFiledProps(objCopy);
 
     schema.map((schemaItem) => {
       if (schemaItem.id === idx) {
-        return (schemaItem[propsName] = e.target.value);
+        return (schemaItem[propsName] = newValue);
       }
     });
     setValueTracker(!valueTracker);
