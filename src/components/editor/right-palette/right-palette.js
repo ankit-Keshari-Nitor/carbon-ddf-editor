@@ -38,23 +38,32 @@ export default function RightPalette({
                       }
                     />
                   ) : (
-                    <Toggle
-                      key={idx}
-                      id={"toggle-" + String(idx)}
-                      labelA="Off"
-                      labelB="On"
-                      labelText={item.label}
-                      defaultToggled={item.value}
-                      //onToggle={(e)=>{console.log('Test TOgale click')}}
-                      onClick={(e) =>
-                        handleSchemaChanges(
-                          selectedFiledProps?.id,
-                          key,
-                          item.propsName,
-                          !item.value
-                        )
-                      }
-                    />
+                    <ul key={idx}>
+                      <li>
+                        <Toggle
+                          key={idx}
+                          id={
+                            "toggle-" +
+                            String(idx) +
+                            "-" +
+                            selectedFiledProps?.id
+                          }
+                          labelA="Off"
+                          labelB="On"
+                          labelText={item.label}
+                          defaultToggled={item.value}
+                          toggled={item.value}
+                          onClick={(e) =>
+                            handleSchemaChanges(
+                              selectedFiledProps?.id,
+                              key,
+                              item.propsName,
+                              !item.value
+                            )
+                          }
+                        />
+                      </li>
+                    </ul>
                   );
                 })}
               </AccordionItem>
