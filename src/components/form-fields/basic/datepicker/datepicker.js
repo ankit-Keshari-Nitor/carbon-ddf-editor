@@ -1,6 +1,11 @@
 import React from "react";
 import { DatePicker as CarbonDatePicker, DatePickerInput } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import {
+  FORM_FIELD_TYPE,
+  editableProps,
+  minProps,
+  maxProps,
+} from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.DATEPICKER;
@@ -32,5 +37,5 @@ DatePicker.config = {
   label: "DatePicker",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [minProps, maxProps],
 };

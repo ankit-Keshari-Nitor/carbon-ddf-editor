@@ -26,5 +26,5 @@ Select.config = {
   label: "Select",
   group: "selection",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };

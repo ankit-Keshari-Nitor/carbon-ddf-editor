@@ -29,5 +29,5 @@ Password.config = {
   label: "Password Input",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };

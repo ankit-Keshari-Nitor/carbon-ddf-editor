@@ -23,5 +23,5 @@ Button.config = {
   label: "Button",
   group: "action",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };

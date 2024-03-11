@@ -34,5 +34,5 @@ FileUploader.config = {
   label: "File Uploader",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };

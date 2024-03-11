@@ -7,9 +7,11 @@ export default function RightPalette({
   handleSchemaChanges,
 }) {
   const [editableProps, setEditableProps] = React.useState({});
+  const [advanceProps, setAdvanceProps] = React.useState([]);
 
   useEffect(() => {
     setEditableProps(selectedFiledProps?.editableProps);
+    setAdvanceProps(selectedFiledProps?.advanceProps);
   }, [selectedFiledProps]);
 
   return (
@@ -70,6 +72,33 @@ export default function RightPalette({
               </AccordionItem>
             );
           })}
+        {advanceProps && advanceProps.length > 0 && (
+          <AccordionItem key={"advance"} title={"Advance"}>
+            {advanceProps.map((advncProps, idx) => {
+              return (
+                <TextInput
+                  key={idx}
+                  id={String(idx)}
+                  className="right-palette-form-item"
+                  labelText={advncProps.label}
+                  value={advncProps.value}
+                  onChange={(e) => {
+                    if (isNaN(e.target.value)) {
+                      e.preventDefault();
+                    } else {
+                      handleSchemaChanges(
+                        selectedFiledProps?.id,
+                        "advance",
+                        advncProps.propsName,
+                        e.target.value
+                      );
+                    }
+                  }}
+                />
+              );
+            })}
+          </AccordionItem>
+        )}
       </Accordion>
     </div>
   );

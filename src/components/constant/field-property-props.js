@@ -7,7 +7,7 @@ export const editableProps = {
     },
     {
       propsName: "helperText",
-      label: "Help Text",
+      label: "Helper Text",
       value: "",
     },
   ],
@@ -28,4 +28,16 @@ export const editableProps = {
       value: false,
     },
   ],
+};
+
+export const minProps = {
+  propsName: "min",
+  label: "Min Value",
+  value: '',
+};
+
+export const maxProps = {
+  propsName: "max",
+  label: "Max Value",
+  value: '',
 };

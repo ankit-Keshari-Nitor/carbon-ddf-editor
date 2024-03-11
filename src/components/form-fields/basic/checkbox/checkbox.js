@@ -32,5 +32,5 @@ Checkbox.config = {
   label: "Checkbox",
   group: "selection",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };
