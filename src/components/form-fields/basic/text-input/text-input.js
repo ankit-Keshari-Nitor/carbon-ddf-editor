@@ -1,6 +1,11 @@
 import React from "react";
 import { TextInput as CarbonTextInput } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import {
+  FORM_FIELD_TYPE,
+  editableProps,
+  minProps,
+  maxProps,
+} from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.TEXT_INPUT;
@@ -24,5 +29,5 @@ TextInput.config = {
   label: "Text Input",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [minProps, maxProps],
 };

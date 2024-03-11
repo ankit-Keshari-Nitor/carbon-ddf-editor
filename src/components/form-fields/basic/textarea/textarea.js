@@ -1,6 +1,11 @@
 import React from "react";
 import { TextArea as CarbonTextArea } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import {
+  FORM_FIELD_TYPE,
+  editableProps,
+  minProps,
+  maxProps,
+} from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.TEXT_AREA;
@@ -24,5 +29,5 @@ TextArea.config = {
   label: "Text Area",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [minProps, maxProps],
 };

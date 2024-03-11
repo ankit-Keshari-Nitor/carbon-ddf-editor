@@ -1,6 +1,11 @@
 import React from "react";
 import { NumberInput as CarbonNumberInput } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import {
+  FORM_FIELD_TYPE,
+  editableProps,
+  minProps,
+  maxProps,
+} from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.NUMBER;
@@ -24,5 +29,5 @@ NumberInput.config = {
   label: "Number",
   group: "basic-input",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [minProps, maxProps],
 };

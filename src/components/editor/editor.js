@@ -46,14 +46,13 @@ const Editor = () => {
     if (fieldDeleted) {
       setSelectedFiledProps({});
       setFieldDeleted(!fieldDeleted);
-      console.log("inside useeffect if");
     }
   }, [fieldDeleted]);
 
-  const selectedField = (filedProps) => {
-    let filedTypeConfig = getFormField(filedProps.type).config;
+  const selectedField = (fieldProps) => {
+    let filedTypeConfig = getFormField(fieldProps.type).config;
     const fieldData = schema.filter(
-      (fieldItem) => fieldItem.id === filedProps.id
+      (fieldItem) => fieldItem.id === fieldProps.id
     )[0];
     filedTypeConfig?.editableProps?.Basic.map((baiscEditPops) => {
       if (fieldData[baiscEditPops.propsName]) {
@@ -62,23 +61,41 @@ const Editor = () => {
         return (baiscEditPops.value = "");
       }
     });
-    filedTypeConfig?.editableProps?.Condition.map((baiscEditPops) => {
-      if (fieldData[baiscEditPops.propsName]) {
-        return (baiscEditPops.value = fieldData[baiscEditPops?.propsName]);
+    filedTypeConfig?.editableProps?.Condition.map((conditionEditPops) => {
+      if (fieldData[conditionEditPops.propsName]) {
+        return (conditionEditPops.value =
+          fieldData[conditionEditPops?.propsName]);
       } else {
-        return (baiscEditPops.value = false);
+        return (conditionEditPops.value = false);
       }
     });
-    setSelectedFiledProps({ ...filedTypeConfig, id: filedProps.id });
+
+    filedTypeConfig?.advanceProps.map((advancePops) => {
+      if (fieldData[advancePops.propsName]) {
+        return (advancePops.value = fieldData[advancePops?.propsName]);
+      } else {
+        return (advancePops.value = "");
+      }
+    });
+
+    setSelectedFiledProps({ ...filedTypeConfig, id: fieldProps.id });
   };
 
   const handleSchemaChanges = (idx, key, propsName, newValue) => {
     let objCopy = selectedFiledProps;
-    objCopy.editableProps[key].map((config) => {
-      if (config.propsName === propsName) {
-        config.value = newValue;
-      }
-    });
+    if (key !== "advance") {
+      objCopy.editableProps[key].map((config) => {
+        if (config.propsName === propsName) {
+          config.value = newValue;
+        }
+      });
+    } else {
+      objCopy.advanceProps.map((config) => {
+        if (config.propsName === propsName) {
+          config.value = newValue;
+        }
+      });
+    }
     setSelectedFiledProps(objCopy);
 
     schema.map((schemaItem) => {

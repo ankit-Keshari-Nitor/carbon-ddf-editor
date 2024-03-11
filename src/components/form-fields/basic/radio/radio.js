@@ -1,4 +1,5 @@
-import React from "react";import {
+import React from "react";
+import {
   RadioButton as CarbonRadioButton,
   RadioButtonGroup,
 } from "@carbon/react";
@@ -28,5 +29,5 @@ RadioButton.config = {
   label: "Radio Group",
   group: "selection",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };
