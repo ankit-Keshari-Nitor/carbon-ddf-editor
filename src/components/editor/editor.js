@@ -110,7 +110,7 @@ const Editor = () => {
     <div className="editor-container">
       <TopNav />
       <div className="layout-container">
-        <div className="palette-container">
+        <div className="left-palette-container">
           <LeftPalette />
         </div>
         <div

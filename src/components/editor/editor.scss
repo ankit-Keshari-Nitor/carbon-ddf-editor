@@ -12,7 +12,7 @@
   flex: 1;
 }
 
-.palette-container {
+.left-palette-container {
   display: flex;
   position: sticky;
   flex-direction: column;
@@ -39,6 +39,7 @@
   flex-direction: column;
   min-width: 270px;
   max-height: calc(100vh - 56px);
+  overflow: auto;
   background-color: #ffffff;
   border: solid 1px hsl(225, 10%, 80%);
 }
