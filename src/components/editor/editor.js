@@ -57,16 +57,16 @@ const Editor = () => {
     )[0];
     filedTypeConfig?.editableProps?.Basic.map((baiscEditPops) => {
       if (fieldData[baiscEditPops.propsName]) {
-        baiscEditPops.value = fieldData[baiscEditPops?.propsName];
+        return (baiscEditPops.value = fieldData[baiscEditPops?.propsName]);
       } else {
-        baiscEditPops.value = "";
+        return (baiscEditPops.value = "");
       }
     });
     filedTypeConfig?.editableProps?.Condition.map((baiscEditPops) => {
       if (fieldData[baiscEditPops.propsName]) {
-        baiscEditPops.value = fieldData[baiscEditPops?.propsName];
+        return (baiscEditPops.value = fieldData[baiscEditPops?.propsName]);
       } else {
-        baiscEditPops.value = false;
+        return (baiscEditPops.value = false);
       }
     });
     setSelectedFiledProps({ ...filedTypeConfig, id: filedProps.id });
@@ -83,7 +83,7 @@ const Editor = () => {
 
     schema.map((schemaItem) => {
       if (schemaItem.id === idx) {
-        return (schemaItem[propsName] = newValue);
+        schemaItem[propsName] = newValue;
       }
     });
     setValueTracker(!valueTracker);
