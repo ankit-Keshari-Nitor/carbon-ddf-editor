@@ -7,7 +7,7 @@ import RightPalette from "./right-palette";
 import { useDrop } from "react-dnd";
 import TopNav from "./top-nav";
 import { getFormField } from "../util/get-form-field";
-import {Tabs, TabList, Tab, TabPanels, TabPanel } from "@carbon/react";
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@carbon/react";
 
 const Editor = () => {
   const [schema, setSchema] = React.useState([]);
@@ -126,21 +126,23 @@ const Editor = () => {
           />
         </div>
         <div className="right-container">
-          <Tabs>
-            <TabList aria-label="List of tabs" activation="manual">
-              <Tab>DDF</Tab>
-              <Tab>Custom</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>DDF...</TabPanel>
-              <TabPanel>
-              <RightPalette
-                selectedFiledProps={selectedFiledProps}
-                handleSchemaChanges={handleSchemaChanges}
-              />
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
+          {selectedFiledProps && (
+            <Tabs>
+              <TabList aria-label="List of tabs" activation="manual">
+                <Tab>DDF</Tab>
+                <Tab>Custom</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>DDF...</TabPanel>
+                <TabPanel>
+                  <RightPalette
+                    selectedFiledProps={selectedFiledProps}
+                    handleSchemaChanges={handleSchemaChanges}
+                  />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          )}
         </div>
       </div>
     </div>
