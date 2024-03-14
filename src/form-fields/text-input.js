@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { TextInput as CarbonTextInput } from '@carbon/react';
 import { FORM_FIELD_TYPE, editableProps, minProps, maxProps, readOnly } from '../constant';
 import Label from './label';
-import useMinMaxInput from '../customHook/useMinMaxInput';
+import useMinMaxInput from '../custom-hooks/use-min-max-input';
 
 const type = FORM_FIELD_TYPE.TEXT_INPUT;
 
