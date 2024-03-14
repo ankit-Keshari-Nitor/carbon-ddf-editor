@@ -8,14 +8,10 @@ const type = FORM_FIELD_TYPE.NUMBER;
 const NumberInput = ({ field }) => {
   const { id, type, labelText, isRequired, ...rest } = field;
 
-  const handleChange = (e) => {
-    console.log('Value', e.target.value);
-  };
-
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonNumberInput id={id} type={type} label="" onChange={handleChange} {...rest} />
+      <CarbonNumberInput id={id} type={type} label="" {...rest} />
     </>
   );
 };

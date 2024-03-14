@@ -1,4 +1,16 @@
-import { ButtonCentered, Txt, TextFill, Calendar, CheckboxCheckedFilled, RadioButtonChecked, ListDropdown, CharacterWholeNumber, Password, Upload } from '@carbon/icons-react';
+import {
+  ButtonCentered,
+  Txt,
+  TextFill,
+  Calendar,
+  CheckboxCheckedFilled,
+  RadioButtonChecked,
+  ListDropdown,
+  CharacterWholeNumber,
+  Password,
+  Upload,
+  Link
+} from '@carbon/icons-react';
 
 export const getIconByType = (type) => {
   return {
@@ -11,6 +23,7 @@ export const getIconByType = (type) => {
     select: <ListDropdown />,
     numberinput: <CharacterWholeNumber />,
     password: <Password />,
-    fileUploader: <Upload />
+    fileUploader: <Upload />,
+    link: <Link />
   }[type];
 };

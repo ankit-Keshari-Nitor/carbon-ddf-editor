@@ -60,7 +60,7 @@ const Editor = () => {
         return (baiscEditPops.value = '');
       }
     });
-    filedTypeConfig?.editableProps?.Condition.map((conditionEditPops) => {
+    filedTypeConfig?.editableProps?.Condition?.map((conditionEditPops) => {
       if (fieldData[conditionEditPops.propsName]) {
         return (conditionEditPops.value = fieldData[conditionEditPops?.propsName]);
       } else {

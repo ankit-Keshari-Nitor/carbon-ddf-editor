@@ -9,5 +9,6 @@ export const FORM_FIELD_TYPE = {
   NUMBER: 'numberinput',
   PASSWORD: 'password',
   FILE_UPLOADER: 'fileUploader',
-  ACCORDION: 'accordion'
+  ACCORDION: 'accordion',
+  LINK:'link'
 };
