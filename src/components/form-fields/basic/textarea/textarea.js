@@ -1,22 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextArea as CarbonTextArea } from "@carbon/react";
 import {
   FORM_FIELD_TYPE,
   editableProps,
   minProps,
   maxProps,
+  readOnly,
 } from "../../../constant";
 import Label from "../label/label";
+import useMinMaxInput from "../../../customHook/useMinMaxInput";
 
 const type = FORM_FIELD_TYPE.TEXT_AREA;
 
 const TextArea = ({ field }) => {
-  const { id, type, labelText, isRequired, ...rest } = field;
+  const { id, type, labelText, isRequired, min, max, ...rest } = field;
+
+  const {
+    value,
+    isValid,
+    invalidText,
+    valueChangeHandler,
+    minChangeHandler,
+    maxChangeHandler,
+  } = useMinMaxInput();
+
+  useEffect(() => {
+    if (min !== undefined) {
+      minChangeHandler(min);
+    }
+    if (max !== undefined) {
+      maxChangeHandler(max);
+    }
+  }, [min, max, minChangeHandler, maxChangeHandler]);
 
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonTextArea id={id} type={type} labelText="" {...rest} />
+      <CarbonTextArea
+        id={id}
+        type={type}
+        labelText=""
+        value={value}
+        invalid={isValid}
+        invalidText={invalidText}
+        onChange={valueChangeHandler}
+        {...rest}
+      />
     </>
   );
 };
@@ -28,6 +57,9 @@ TextArea.config = {
   type,
   label: "Text Area",
   group: "basic-input",
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic],
+    Condition: [...editableProps.Condition, readOnly],
+  },
   advanceProps: [minProps, maxProps],
 };

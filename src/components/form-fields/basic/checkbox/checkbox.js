@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox as CarbonCheckbox } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import { FORM_FIELD_TYPE, editableProps, readOnly } from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.CHECKBOX;
@@ -31,6 +31,9 @@ Checkbox.config = {
   type,
   label: "Checkbox",
   group: "selection",
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic],
+    Condition: [...editableProps.Condition, readOnly],
+  },
   advanceProps: [],
 };

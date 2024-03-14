@@ -1,6 +1,6 @@
 import React from "react";
 import { Select as CarbonSelect, SelectItem } from "@carbon/react";
-import { FORM_FIELD_TYPE, editableProps } from "../../../constant";
+import { FORM_FIELD_TYPE, editableProps, readOnly } from "../../../constant";
 import Label from "../label/label";
 
 const type = FORM_FIELD_TYPE.SELECT;
@@ -25,6 +25,9 @@ Select.config = {
   type,
   label: "Select",
   group: "selection",
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic],
+    Condition: [...editableProps.Condition, readOnly],
+  },
   advanceProps: [],
 };

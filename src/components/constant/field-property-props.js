@@ -18,11 +18,6 @@ export const editableProps = {
       value: false,
     },
     {
-      propsName: "readOnly",
-      label: "ReadOnly",
-      value: false,
-    },
-    {
       propsName: "isRequired",
       label: "IsRequired",
       value: false,
@@ -30,14 +25,20 @@ export const editableProps = {
   ],
 };
 
+export const readOnly = {
+  propsName: "readOnly",
+  label: "ReadOnly",
+  value: false,
+};
+
 export const minProps = {
   propsName: "min",
   label: "Min Value",
-  value: '',
+  value: "",
 };
 
 export const maxProps = {
   propsName: "max",
   label: "Max Value",
-  value: '',
+  value: "",
 };

@@ -24,5 +24,5 @@ Accordion.config = {
   label: "Accordion",
   group: "panel",
   editableProps: editableProps,
-  advanceProps: {},
+  advanceProps: [],
 };
