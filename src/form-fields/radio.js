@@ -25,6 +25,9 @@ RadioButton.config = {
   type,
   label: 'Radio Group',
   group: 'selection',
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic],
+    Condition: [...editableProps.Condition]
+  },
   advanceProps: []
 };

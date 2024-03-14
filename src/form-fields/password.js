@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput as CarbonTextInput } from '@carbon/react';
-import { FORM_FIELD_TYPE, editableProps } from '../constant';
+import { FORM_FIELD_TYPE, editableProps, helperText } from '../constant';
 import Label from './label';
 
 const type = FORM_FIELD_TYPE.PASSWORD;
@@ -23,6 +23,9 @@ Password.config = {
   type,
   label: 'Password Input',
   group: 'basic-input',
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic, helperText],
+    Condition: [...editableProps.Condition]
+  },
   advanceProps: []
 };

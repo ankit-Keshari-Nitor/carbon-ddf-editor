@@ -4,11 +4,6 @@ export const editableProps = {
       propsName: 'labelText',
       label: 'Label',
       value: 'Text Input'
-    },
-    {
-      propsName: 'helperText',
-      label: 'Helper Text',
-      value: ''
     }
   ],
   Condition: [
@@ -23,6 +18,12 @@ export const editableProps = {
       value: false
     }
   ]
+};
+
+export const helperText = {
+  propsName: 'helperText',
+  label: 'Helper Text',
+  value: ''
 };
 
 export const readOnly = {

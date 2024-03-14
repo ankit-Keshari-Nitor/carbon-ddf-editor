@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { TextArea as CarbonTextArea } from '@carbon/react';
-import { FORM_FIELD_TYPE, editableProps, minProps, maxProps, readOnly } from '../constant';
+import { FORM_FIELD_TYPE, editableProps, minProps, maxProps, readOnly, helperText } from '../constant';
 import Label from './label';
 import useMinMaxInput from '../custom-hooks/use-min-max-input';
 
@@ -8,7 +8,6 @@ const type = FORM_FIELD_TYPE.TEXT_AREA;
 
 const TextArea = ({ field }) => {
   const { id, type, labelText, isRequired, min, max, ...rest } = field;
-
   const { value, isValid, invalidText, valueChangeHandler, minChangeHandler, maxChangeHandler } = useMinMaxInput();
 
   useEffect(() => {
@@ -36,7 +35,7 @@ TextArea.config = {
   label: 'Text Area',
   group: 'basic-input',
   editableProps: {
-    Basic: [...editableProps.Basic],
+    Basic: [...editableProps.Basic, helperText],
     Condition: [...editableProps.Condition, readOnly]
   },
   advanceProps: [minProps, maxProps]

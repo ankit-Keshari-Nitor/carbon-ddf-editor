@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { TextInput as CarbonTextInput } from '@carbon/react';
-import { FORM_FIELD_TYPE, editableProps, minProps, maxProps, readOnly } from '../constant';
+import { FORM_FIELD_TYPE, editableProps, minProps, maxProps, readOnly, helperText } from '../constant';
 import Label from './label';
 import useMinMaxInput from '../custom-hooks/use-min-max-input';
 
@@ -35,7 +35,7 @@ TextInput.config = {
   label: 'Text Input',
   group: 'basic-input',
   editableProps: {
-    Basic: [...editableProps.Basic],
+    Basic: [...editableProps.Basic, helperText],
     Condition: [...editableProps.Condition, readOnly]
   },
   advanceProps: [minProps, maxProps]

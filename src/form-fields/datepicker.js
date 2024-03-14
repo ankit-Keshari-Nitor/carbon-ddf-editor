@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker as CarbonDatePicker, DatePickerInput } from '@carbon/react';
-import { FORM_FIELD_TYPE, editableProps } from '../constant';
+import { FORM_FIELD_TYPE, editableProps, helperText, readOnly } from '../constant';
 import Label from './label';
 
 const type = FORM_FIELD_TYPE.DATEPICKER;
@@ -25,6 +25,9 @@ DatePicker.config = {
   type,
   label: 'DatePicker',
   group: 'basic-input',
-  editableProps: editableProps,
+  editableProps: {
+    Basic: [...editableProps.Basic, helperText],
+    Condition: [...editableProps.Condition]
+  },
   advanceProps: []
 };
