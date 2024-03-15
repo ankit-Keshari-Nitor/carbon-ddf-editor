@@ -22,7 +22,7 @@ const TextInput = (field) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonTextInput id={id} type={type} labelText="" value={value} invalid={isValid} invalidText={invalidText} onChange={valueChangeHandler} {...rest} />
+      <CarbonTextInput data-testid={id} id={id} type={type} labelText="" value={value} invalid={isValid} invalidText={invalidText} onChange={valueChangeHandler} {...rest} />
     </>
   );
 };

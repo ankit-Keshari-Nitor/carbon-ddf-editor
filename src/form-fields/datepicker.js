@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker as CarbonDatePicker, DatePickerInput } from '@carbon/react';
-import { FORM_FIELD_TYPE, editableProps, helperText, readOnly } from '../constant';
+import { FORM_FIELD_TYPE, editableProps, helperText } from '../constant';
 import Label from './label';
 
 const type = FORM_FIELD_TYPE.DATEPICKER;
@@ -11,7 +11,7 @@ const DatePicker = (field) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonDatePicker id={id} datePickerType="single">
+      <CarbonDatePicker data-testid={id} id={id} datePickerType="single">
         <DatePickerInput id={id} type={type} labelText="" placeholder="mm/dd/yyyy" {...rest} />
       </CarbonDatePicker>
     </>

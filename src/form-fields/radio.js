@@ -12,7 +12,7 @@ const RadioButton = (field) => {
     <>
       <Label labelText={labelText} isRequired={isRequired} />
       <RadioButtonGroup name="">
-        <CarbonRadioButton id={id} labelText="" value={id} {...rest} />
+        <CarbonRadioButton data-testid={id} id={id} labelText="" value={id} {...rest} />
       </RadioButtonGroup>
     </>
   );

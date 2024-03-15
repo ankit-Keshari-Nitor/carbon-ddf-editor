@@ -1,18 +1,46 @@
 import { render, screen } from '@testing-library/react';
-import { FORM_FIELD_TYPE } from '../../../constant';
-import Button from '../button/button';
+import { FORM_FIELD_TYPE } from '../../constant';
+import Button from '../button';
+import { createContainer } from '../../util/test-helper';
 
-describe('Button Component', () => {
-  it('Button testCase', () => {
-    const field = {
-      id: 'test-button',
-      type: FORM_FIELD_TYPE.BUTTON,
-      labelText: 'Button Test'
-    };
-    render(<Button field={field} />);
+let container;
+
+describe('Button', () => {
+  beforeEach(() => {
+    container = createContainer();
+  });
+
+  afterEach(function () {
+    container.remove();
+  });
+
+  it('should render', () => {
+    // when;
+    render(
+      getComponent({
+        value: 'Test Button value'
+      })
+    );
+
+    // then
+    expect(screen.getByTestId('test-button')).toBeInTheDocument();
+
     const checkButton = screen.getByRole('button');
-    const checkButtonLabel = screen.getByText('Button Test');
+
     expect(checkButton).toBeInTheDocument();
+    expect(checkButton.value).toEqual('Test Button value');
+
+    const checkButtonLabel = screen.getByText('Button Label');
     expect(checkButtonLabel).toBeInTheDocument();
   });
 });
+
+const getComponent = (props) => {
+  const defaultField = {
+    id: 'test-button',
+    type: FORM_FIELD_TYPE.BUTTON,
+    labelText: 'Button Label',
+    ...props
+  };
+  return <Button field={defaultField} />;
+};
