@@ -11,7 +11,7 @@ const Password = ({ field }) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonTextInput.PasswordInput id={id} type={type} labelText="" {...rest} />
+      <CarbonTextInput.PasswordInput data-testid={id} id={id} type={type} labelText="" {...rest} />
     </>
   );
 };

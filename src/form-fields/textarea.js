@@ -22,7 +22,7 @@ const TextArea = ({ field }) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonTextArea id={id} type={type} labelText="" value={value} invalid={isValid} invalidText={invalidText} onChange={valueChangeHandler} {...rest} />
+      <CarbonTextArea data-testid={id} id={id} type={type} labelText="" value={value} invalid={isValid} invalidText={invalidText} onChange={valueChangeHandler} {...rest} />
     </>
   );
 };

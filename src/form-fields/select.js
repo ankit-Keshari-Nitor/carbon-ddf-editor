@@ -11,7 +11,7 @@ const Select = ({ field }) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonSelect id={id} labelText="" type={type} {...rest}>
+      <CarbonSelect data-testid={id} id={id} labelText="" type={type} {...rest}>
         <SelectItem text="No Option" value="no-option" />
       </CarbonSelect>
     </>

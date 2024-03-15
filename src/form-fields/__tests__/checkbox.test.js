@@ -1,18 +1,50 @@
 import { render, screen } from '@testing-library/react';
-import { FORM_FIELD_TYPE } from '../../../constant';
-import Checkbox from '../checkbox/checkbox';
+import { FORM_FIELD_TYPE } from '../../constant';
+import Checkbox from '../checkbox';
+import { createContainer } from '../../util/test-helper';
 
-describe('Checkbox Component', () => {
-  it('Checkbox testCase', () => {
-    const field = {
-      id: 'test-checkbox',
-      type: FORM_FIELD_TYPE.CHECKBOX,
-      labelText: 'Checkbox Test'
-    };
-    render(<Checkbox field={field} />);
+let container;
+
+describe('Checkbox', () => {
+  beforeEach(() => {
+    container = createContainer();
+  });
+
+  afterEach(function () {
+    container.remove();
+  });
+
+  it('should render', () => {
+    // when;
+    render(getComponent());
+
+    // then
+    expect(screen.getByTestId('test-checkbox')).toBeInTheDocument();
+
     const checkCheckbox = screen.getByRole('checkbox');
-    const checkCheckboxLabel = screen.getByText('Checkbox Test');
+
     expect(checkCheckbox).toBeInTheDocument();
+
+    const checkCheckboxLabel = screen.getByText('Checkbox Label');
+    expect(checkCheckboxLabel).toBeInTheDocument();
+  });
+
+  it('should render required label', function () {
+    // when
+    render(getComponent({ isRequired: true }));
+
+    // then
+    const checkCheckboxLabel = screen.getByText('*');
     expect(checkCheckboxLabel).toBeInTheDocument();
   });
 });
+
+const getComponent = (props) => {
+  const defaultField = {
+    id: 'test-checkbox',
+    type: FORM_FIELD_TYPE.CHECKBOX,
+    labelText: 'Checkbox Label',
+    ...props
+  };
+  return <Checkbox field={defaultField} />;
+};

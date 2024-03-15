@@ -11,7 +11,7 @@ const NumberInput = ({ field }) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonNumberInput id={id} type={type} label="" {...rest} />
+      <CarbonNumberInput data-testid={id} id={id} type={type} label="" {...rest} />
     </>
   );
 };

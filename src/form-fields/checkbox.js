@@ -12,7 +12,7 @@ const Checkbox = ({ field }) => {
   return (
     <>
       <Label labelText={labelText} isRequired={isRequired} />
-      <CarbonCheckbox id={id} type={type} labelText="" checked={isChecked} onChange={(_, { checked }) => setIsChecked(checked)} {...rest} />
+      <CarbonCheckbox data-testid={id} id={id} type={type} labelText="" checked={isChecked} onChange={(_, { checked }) => setIsChecked(checked)} {...rest} />
     </>
   );
 };

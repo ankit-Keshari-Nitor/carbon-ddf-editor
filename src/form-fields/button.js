@@ -4,11 +4,11 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 
 const type = FORM_FIELD_TYPE.BUTTON;
 
-const Button = (props) => {
-  const { field, ...rest } = props;
+const Button = ({field}) => {
+  const { id, type, labelText, ...rest } = field;
 
   return (
-    <CarbonButton {...field} {...rest}>
+    <CarbonButton data-testid={id} id={id} {...rest}>
       {field.labelText}
     </CarbonButton>
   );
