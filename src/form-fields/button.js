@@ -5,13 +5,7 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 const type = FORM_FIELD_TYPE.BUTTON;
 
 const Button = (props) => {
-  const { field, ...rest } = props;
-
-  return (
-    <CarbonButton {...field} {...rest}>
-      {field.labelText}
-    </CarbonButton>
-  );
+  return <CarbonButton {...props}>{props.labelText}</CarbonButton>;
 };
 
 export default Button;

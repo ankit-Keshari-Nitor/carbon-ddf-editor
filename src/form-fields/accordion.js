@@ -5,11 +5,9 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 const type = FORM_FIELD_TYPE.ACCORDION;
 
 const Accordion = (props) => {
-  const { field, ...rest } = props;
-
   return (
-    <CarbonAccordion id={field.id} {...rest}>
-      <AccordionItem title={field.labelText}>
+    <CarbonAccordion id={props.id} {...props}>
+      <AccordionItem title={props.labelText}>
         <p></p>
       </AccordionItem>
     </CarbonAccordion>

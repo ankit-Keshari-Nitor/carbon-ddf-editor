@@ -5,7 +5,7 @@ import Label from './label';
 
 const type = FORM_FIELD_TYPE.NUMBER;
 
-const NumberInput = ({ field }) => {
+const NumberInput = (field) => {
   const { id, type, labelText, isRequired, ...rest } = field;
 
   return (

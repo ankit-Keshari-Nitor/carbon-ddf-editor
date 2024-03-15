@@ -5,13 +5,7 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 const type = FORM_FIELD_TYPE.LINK;
 
 const Link = (props) => {
-  const { field, ...rest } = props;
-
-  return (
-    <CarbonLink {...field} {...rest}>
-      {field.labelText}
-    </CarbonLink>
-  );
+  return <CarbonLink {...props}>{props.labelText}</CarbonLink>;
 };
 
 export default Link;

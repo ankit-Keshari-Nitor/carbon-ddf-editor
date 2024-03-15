@@ -5,11 +5,9 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 const type = FORM_FIELD_TYPE.FILE_UPLOADER;
 
 const FileUploader = (props) => {
-  const { field, ...rest } = props;
-
   return (
     <CarbonFileUploader
-      id={field.id}
+      id={props.id}
       labelTitle="Upload files"
       labelDescription="Max file size is 500mb. Only .jpg files are supported."
       buttonLabel="Add file"
@@ -21,7 +19,7 @@ const FileUploader = (props) => {
       disabled={false}
       iconDescription="Delete file"
       name=""
-      {...rest}
+      {...props}
     />
   );
 };

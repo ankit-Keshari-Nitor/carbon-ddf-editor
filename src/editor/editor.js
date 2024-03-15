@@ -8,6 +8,9 @@ import { useDrop } from 'react-dnd';
 import TopNav from './top-nav';
 import { getFormField } from '../util/get-form-field';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@carbon/react';
+import FormRenderer from '@data-driven-forms/react-form-renderer/form-renderer';
+import { componentMapper } from '../constant/component-mapper';
+import ToggleButton from '../form-fields/toggle-button';
 
 const Editor = () => {
   const [schema, setSchema] = React.useState([]);
@@ -122,7 +125,51 @@ const Editor = () => {
                 <Tab>Custom</Tab>
               </TabList>
               <TabPanels>
-                <TabPanel>DDF...</TabPanel>
+                <TabPanel>
+                  <FormRenderer
+                    schema={{
+                      fields: [
+                        {
+                          component: 'text-field',
+                          name: 'label',
+                          labelText: 'Label',
+                          id: 'label-text-field',
+                          type: 'textinput'
+                        },
+                        {
+                          component: 'text-field',
+                          name: 'helperText',
+                          labelText: 'Helper Text',
+                          id: 'helperText-text-field',
+                          type: 'textinput'
+                        },
+                        {
+                          component: 'custom-toggle',
+                          name: 'Disabled',
+                          labelText: 'Disabled',
+                          id: 'disabled-text-field',
+                          value: false
+                        },
+                        {
+                          component: 'custom-toggle',
+                          name: 'IsRequired',
+                          labelText: 'IsRequired',
+                          id: 'isRequired-text-field',
+                          value: false
+                        },
+                        {
+                          component: 'custom-toggle',
+                          name: 'ReadOnly',
+                          labelText: 'ReadOnly',
+                          id: 'readOnly-text-field',
+                          value: false
+                        }
+                      ]
+                    }}
+                    componentMapper={componentMapper}
+                    FormTemplate={({ formFields }) => <div className="ddf-div">{formFields}</div>}
+                  />
+                </TabPanel>
                 <TabPanel>
                   <RightPalette selectedFiledProps={selectedFiledProps} handleSchemaChanges={handleSchemaChanges} />
                 </TabPanel>

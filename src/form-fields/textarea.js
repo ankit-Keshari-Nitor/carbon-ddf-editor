@@ -6,7 +6,7 @@ import useMinMaxInput from '../custom-hooks/use-min-max-input';
 
 const type = FORM_FIELD_TYPE.TEXT_AREA;
 
-const TextArea = ({ field }) => {
+const TextArea = (field) => {
   const { id, type, labelText, isRequired, min, max, ...rest } = field;
   const { value, isValid, invalidText, valueChangeHandler, minChangeHandler, maxChangeHandler } = useMinMaxInput();
 
