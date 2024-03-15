@@ -4,13 +4,8 @@ import { FORM_FIELD_TYPE, editableProps } from '../constant';
 
 const type = FORM_FIELD_TYPE.LINK;
 
-const Link = ({ field }) => {
-  const { id, type, labelText, ...rest } = field;
-  return (
-    <CarbonLink data-testid={id} id={id} {...rest}>
-      {field.labelText}
-    </CarbonLink>
-  );
+const Link = (props) => {
+  return <CarbonLink {...props}>{props.labelText}</CarbonLink>;
 };
 
 export default Link;

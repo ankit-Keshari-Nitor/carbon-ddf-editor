@@ -5,7 +5,7 @@ import Label from './label';
 
 const type = FORM_FIELD_TYPE.SELECT;
 
-const Select = ({ field }) => {
+const Select = (field) => {
   const { id, type, labelText, isRequired, ...rest } = field;
 
   return (

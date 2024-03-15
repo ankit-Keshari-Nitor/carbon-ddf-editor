@@ -5,7 +5,7 @@ import Label from './label';
 
 const type = FORM_FIELD_TYPE.RADIO;
 
-const RadioButton = ({ field }) => {
+const RadioButton = (field) => {
   const { id, type, labelText, isRequired, ...rest } = field;
 
   return (
