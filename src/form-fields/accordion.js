@@ -1,6 +1,7 @@
 import React from 'react';
 import { AccordionItem, Accordion as CarbonAccordion } from '@carbon/react';
 import { FORM_FIELD_TYPE, editableProps } from '../constant';
+import { Plan } from '@carbon/icons-react';
 
 const type = FORM_FIELD_TYPE.ACCORDION;
 
@@ -21,6 +22,7 @@ Accordion.config = {
   type,
   label: 'Accordion',
   group: 'panel',
+  icon: <Plan />,
   editableProps: editableProps,
   advanceProps: []
 };

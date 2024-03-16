@@ -3,7 +3,6 @@ import { getFormFields } from './../../util/get-form-field';
 import './left-palette.scss';
 import PaletteEntry from './palette-entry';
 import { Search, Close } from '@carbon/icons-react';
-import { getIconByType } from '../../util/get-Icon-by-type';
 
 export const PALETTE_GROUPS = [
   {
@@ -101,7 +100,7 @@ export default function LeftPalette() {
             <span className="palette-group-title">{label}</span>
             <div className="palette-fields">
               {entries.map((entry) => {
-                return <PaletteEntry key={entry.label} getPaletteIcon={getPaletteIcon} {...entry} />;
+                return <PaletteEntry key={entry.label} {...entry} />;
               })}
             </div>
           </div>
@@ -148,16 +147,3 @@ export function collectPaletteEntries(formFields) {
     .filter(({ type }) => type !== 'default');
 }
 
-// Returns the palette Icon.
-export function getPaletteIcon(entry) {
-  const { icon, iconUrl, type, label } = entry;
-  let Icon;
-
-  if (iconUrl) {
-    Icon = () => <img className="field-icon-image" width={36} style={{ margin: 'auto' }} alt={label} src={iconUrl} />;
-  } else {
-    Icon = icon || getIconByType(type);
-  }
-
-  return Icon;
-}

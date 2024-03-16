@@ -3,7 +3,7 @@ import './palette-entry.scss';
 import { useDrag } from 'react-dnd';
 
 const PaletteEntry = (props) => {
-  const { type, label, icon, iconUrl, getPaletteIcon } = props;
+  const { type, label, icon } = props;
 
   const [{ isDragging }, drag] = useDrag({
     type: 'form-field',
@@ -13,12 +13,10 @@ const PaletteEntry = (props) => {
     })
   });
 
-  const Icon = getPaletteIcon({ icon, iconUrl, label, type });
-
   return (
     <div ref={drag} style={{ border: isDragging ? '1px solid red' : '1px solid green' }}>
       <button className="palette-field" data-field-type={type} title={`Create ${getIndefiniteArticle(type)} ${label} element`}>
-        {Icon}
+        {icon}
         <span className="palette-field-text">{label}</span>
       </button>
     </div>
