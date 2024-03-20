@@ -119,62 +119,64 @@ const Editor = () => {
         </div>
         <div className="right-container">
           {selectedFiledProps && (
-            <Tabs>
-              <TabList aria-label="List of tabs" activation="manual">
-                <Tab>DDF</Tab>
-                <Tab>Custom</Tab>
-              </TabList>
-              <TabPanels>
-                <TabPanel>
-                  <FormRenderer
-                    schema={{
-                      fields: [
-                        {
-                          component: 'text-field',
-                          name: 'label',
-                          labelText: 'Label',
-                          id: 'label-text-field',
-                          type: 'textinput'
-                        },
-                        {
-                          component: 'text-field',
-                          name: 'helperText',
-                          labelText: 'Helper Text',
-                          id: 'helperText-text-field',
-                          type: 'textinput'
-                        },
-                        {
-                          component: 'custom-toggle',
-                          name: 'Disabled',
-                          labelText: 'Disabled',
-                          id: 'disabled-text-field',
-                          value: false
-                        },
-                        {
-                          component: 'custom-toggle',
-                          name: 'IsRequired',
-                          labelText: 'IsRequired',
-                          id: 'isRequired-text-field',
-                          value: false
-                        },
-                        {
-                          component: 'custom-toggle',
-                          name: 'ReadOnly',
-                          labelText: 'ReadOnly',
-                          id: 'readOnly-text-field',
-                          value: false
-                        }
-                      ]
-                    }}
-                    componentMapper={componentMapper}
-                    FormTemplate={({ formFields }) => <div className="ddf-div">{formFields}</div>}
-                  />
-                </TabPanel>
-                <TabPanel>
-                  <RightPalette selectedFiledProps={selectedFiledProps} handleSchemaChanges={handleSchemaChanges} />
-                </TabPanel>
-              </TabPanels>
-            </Tabs>
+            <RightPalette selectedFiledProps={selectedFiledProps} handleSchemaChanges={handleSchemaChanges} />
+
+            // <Tabs>
+            //   <TabList aria-label="List of tabs" activation="manual">
+            //     <Tab>DDF</Tab>
+            //     <Tab>Custom</Tab>
+            //   </TabList>
+            //   <TabPanels>
+            //     <TabPanel>
+            //       <FormRenderer
+            //         schema={{
+            //           fields: [
+            //             {
+            //               component: 'text-field',
+            //               name: 'label',
+            //               labelText: 'Label',
+            //               id: 'label-text-field',
+            //               type: 'textinput'
+            //             },
+            //             {
+            //               component: 'text-field',
+            //               name: 'helperText',
+            //               labelText: 'Helper Text',
+            //               id: 'helperText-text-field',
+            //               type: 'textinput'
+            //             },
+            //             {
+            //               component: 'custom-toggle',
+            //               name: 'Disabled',
+            //               labelText: 'Disabled',
+            //               id: 'disabled-text-field',
+            //               value: false
+            //             },
+            //             {
+            //               component: 'custom-toggle',
+            //               name: 'IsRequired',
+            //               labelText: 'IsRequired',
+            //               id: 'isRequired-text-field',
+            //               value: false
+            //             },
+            //             {
+            //               component: 'custom-toggle',
+            //               name: 'ReadOnly',
+            //               labelText: 'ReadOnly',
+            //               id: 'readOnly-text-field',
+            //               value: false
+            //             }
+            //           ]
+            //         }}
+            //         componentMapper={componentMapper}
+            //         FormTemplate={({ formFields }) => <div className="ddf-div">{formFields}</div>}
+            //       />
+            //     </TabPanel>
+            //     <TabPanel>
+            //       <RightPalette selectedFiledProps={selectedFiledProps} handleSchemaChanges={handleSchemaChanges} />
+            //     </TabPanel>
+            //   </TabPanels>
+            // </Tabs>
           )}
         </div>
       </div>
